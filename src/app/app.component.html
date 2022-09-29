@@ -1,3 +1,4 @@
+<button mat-raised-button (click)="select(11)" >展开</button>
 <mat-tree
   [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
   <!-- This is the tree node template for leaf nodes -->
@@ -22,7 +23,10 @@
           {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
         </mat-icon>
       </button>
-      <div>{{node.name}}</div>
+      <div [ngSwitch]="selectId === node.id">
+        <div *ngSwitchCase="true"><mark>{{node.name}}</mark></div>
+        <div *ngSwitchCase="false">{{node.name}}</div>
+      </div>
     </div>
     <!-- There is inline padding applied to this div using styles.
         This padding value depends on the mat-icon-button width.  -->

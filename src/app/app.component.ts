@@ -3,7 +3,6 @@ import {VscodeService} from "./core/services/vscode.service";
 import {NestedTreeControl} from "@angular/cdk/tree";
 import {MatTree, MatTreeNestedDataSource} from "@angular/material/tree";
 
-
 interface PsiNode {
   name: string;
   id?: string;
@@ -34,8 +33,7 @@ export class AppComponent implements OnInit {
   selectId?: string;
 
   constructor(private vscodeService: VscodeService,
-              private elementRef: ElementRef,
-              private renderer: Renderer2) {
+              private elementRef: ElementRef) {
   }
 
   ngOnInit(): void {
